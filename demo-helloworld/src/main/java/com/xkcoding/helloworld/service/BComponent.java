@@ -1,6 +1,7 @@
 package com.xkcoding.helloworld.service;
 
 import org.springframework.beans.factory.InitializingBean;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;

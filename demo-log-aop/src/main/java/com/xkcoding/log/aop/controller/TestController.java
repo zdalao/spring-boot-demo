@@ -3,12 +3,14 @@ package com.xkcoding.log.aop.controller;
 import cn.hutool.core.lang.Dict;
 import cn.hutool.core.util.StrUtil;
 import cn.hutool.json.JSONUtil;
+import com.xkcoding.log.aop.service.UserService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.annotation.Resource;
 import java.util.Map;
 
 /**
@@ -36,7 +38,8 @@ public class TestController {
     }
 
     /**
-     *  测试post json方法
+     * 测试post json方法
+     *
      * @param map 请求的json参数
      * @return {@link Dict}
      */
@@ -47,4 +50,14 @@ public class TestController {
         log.info(jsonStr);
         return Dict.create().set("json", map);
     }
+
+    @Resource
+    private UserService userService;
+
+    @GetMapping("/user")
+    public void user(String who) {
+        userService.add();
+    }
+
+
 }

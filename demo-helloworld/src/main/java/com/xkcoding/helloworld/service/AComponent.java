@@ -1,6 +1,7 @@
 package com.xkcoding.helloworld.service;
 
 import org.springframework.beans.factory.InitializingBean;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
@@ -10,6 +11,9 @@ public class AComponent implements InitializingBean {
 
     @Resource
     private BComponent bComponent;
+
+    @Value("${server.port}")
+    private String myPort;
 
 
     public AComponent() {
