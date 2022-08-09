@@ -6,6 +6,7 @@ import cn.hutool.core.util.IdUtil;
 import cn.hutool.crypto.SecureUtil;
 import com.xkcoding.orm.mybatis.SpringBootDemoOrmMybatisApplicationTests;
 import com.xkcoding.orm.mybatis.entity.User;
+import com.xkcoding.orm.mybatis.service.UserService;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Assert;
 import org.junit.Test;
@@ -26,6 +27,9 @@ public class UserMapperTest extends SpringBootDemoOrmMybatisApplicationTests {
     @Autowired
     private UserMapper userMapper;
 
+    @Autowired
+    private UserService userService;
+
     /**
      * 测试查询所有
      */
@@ -34,6 +38,11 @@ public class UserMapperTest extends SpringBootDemoOrmMybatisApplicationTests {
         List<User> userList = userMapper.selectAllUser();
         Assert.assertTrue(CollUtil.isNotEmpty(userList));
         log.debug("【userList】= {}", userList);
+    }
+
+    @Test
+    public void test() {
+        userService.add();
     }
 
     /**
